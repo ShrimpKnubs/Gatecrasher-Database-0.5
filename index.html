@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Military Strategic Globe</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Z-Index Layer 1: Background -->
+  <div id="vanta-background"></div>
+
+  <!-- Z-Index Layer 2: Globe -->
+  <canvas id="globe"></canvas>
+
+  <!-- Z-Index Layer 2.5: Decorative Side Panels -->
+  <div id="left-panel" class="side-panel">
+    <div class="panel-element systems-monitor">
+      <div class="panel-header">SYS_DIAGNOSTIC::v4.2.7</div>
+      <div class="panel-content">
+        <div class="system-item">
+          <div>QUANTUM_ARRAY_F12</div>
+          <div>87%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 87%"></div>
+        </div>
+        
+        <div class="system-item">
+          <div>MAINFRAME_NODE::27X</div>
+          <div>92%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 92%"></div>
+        </div>
+        
+        <div class="system-item">
+          <div>CRYPTO_MATRIX_A27</div>
+          <div>99%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 99%"></div>
+        </div>
+        
+        <div class="system-item">
+          <div>NEURAL_NET::PRIMARY</div>
+          <div>78%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 78%"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panel-element data-terminal alert">
+      <div class="panel-header">KERNEL_ACCESS::0xFF7A21</div>
+      <div class="panel-content">
+        <div class="terminal-content">
+          <div class="terminal-line">> SYS.INIT(UPLINK_PROTO_9)</div>
+          <div class="terminal-line">> TELEMETRY.BUFFER[0x7F2E]</div>
+          <div class="terminal-line">> SCAN.BANDW(9200.57_MHz)</div>
+          <div class="terminal-line">> SAT.CVG = 0.89</div>
+          <div class="terminal-line">> SNR_RATIO: 42.7dB [OPTIMAL]</div>
+          <div class="terminal-line">> SYNCHRONIZING DATA_STRUCT</div>
+          <div class="terminal-line">> MESH.SUBNET(TEAM_COORD_v2)</div>
+          <div class="terminal-line">> INTEL::BUFFER_OVERFLOW!</div>
+          <div class="terminal-line">> EXEC: TAC_ANALYSIS.BIN</div>
+          <div class="terminal-line">> NEW MISSION.OBJ DETECTED</div>
+          <div class="terminal-line">> AWAITING AUTH_CODE:...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="right-panel" class="side-panel">
+    <div class="panel-element waveform warning">
+      <div class="panel-header">SIGNAL::ANALYZER_MK4</div>
+      <div class="panel-content">
+        <div class="wave-container">
+          <div class="wave-line"></div>
+          <div class="wave-line"></div>
+          <div class="wave-line"></div>
+          <div class="wave-path">
+            <svg class="wave-svg" viewBox="0 0 200 50" preserveAspectRatio="none">
+              <path d="M0,25 C20,10 30,40 50,25 C70,10 80,40 100,25 C120,10 130,40 150,25 C170,10 180,40 200,25" stroke="var(--warning-color)" fill="none" stroke-width="1"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panel-element">
+      <div class="panel-header">GEO::SCAN_MODULE_v3.2</div>
+      <div class="panel-content">
+        <div class="radar-container">
+          <div class="radar-circle radar-c1"></div>
+          <div class="radar-circle radar-c2"></div>
+          <div class="radar-circle radar-c3"></div>
+          <div class="radar-center"></div>
+          <div class="radar-line"></div>
+          <div class="radar-dot" style="top: 45px; left: 100px;"></div>
+          <div class="radar-dot" style="top: 90px; left: 65px;"></div>
+          <div class="radar-dot" style="top: 30px; left: 35px;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panel-element warning">
+      <div class="panel-header">ASSET_TRACKER::COMBAT</div>
+      <div class="panel-content">
+        <div class="system-item">
+          <div>AMMO_MATRIX_0x7CF6</div>
+          <div>65%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 65%; background: var(--warning-color);"></div>
+        </div>
+        
+        <div class="system-item">
+          <div>CELL_POWER_RESERVE</div>
+          <div>89%</div>
+        </div>
+        <div class="system-bar">
+          <div class="system-fill" style="width: 89%; background: var(--warning-color);"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LCD Screen Overlay (Z-Index Layer 3) -->
+  <div id="lcd-overlay">
+    <div class="scanline"></div>
+    <div class="flicker"></div>
+    <div class="interlace"></div>
+    <div class="crt-corners"></div>
+  </div>
+
+  <!-- Z-Index Layer 4: UI Elements -->
+  <div id="logo-screen">
+    <img src="textures/logo.png" alt="Logo">
+  </div>
+
+  <div id="boot-overlay">
+    <div id="boot-terminal">
+      <div id="terminal-text">
+        <p>> INITIALIZING SYSTEM...</p>
+        <p>> LOADING CORE MODULES...</p>
+        <p>> CHECKING NETWORK CONNECTIVITY...</p>
+        <p>> VERIFYING USER CREDENTIALS...</p>
+        <p>> SYSTEM READY FOR ACTIVATION...</p>
+      </div>
+      <button id="activate-button">ACTIVATE SYSTEM</button>
+    </div>
+  </div>
+
+  <!-- Mission Panel -->
+  <div id="mission-panel">
+    <div id="mission-header">
+      <div id="mission-title">MISSION BRIEFING</div>
+      <button id="close-mission">X</button>
+    </div>
+    <div class="mission-section">
+      <div class="mission-label">LOCATION</div>
+      <div id="mission-location" class="mission-content">LOCATION PLACEHOLDER</div>
+    </div>
+    <div class="mission-stats">
+      <div class="stat-box">
+        <div class="stat-label">DIFFICULTY</div>
+        <div id="mission-difficulty" class="stat-value">MEDIUM</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">PAYMENT</div>
+        <div id="mission-payment" class="stat-value">$10,000</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">DURATION</div>
+        <div id="mission-duration" class="stat-value">2 HRS</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">TEAM SIZE</div>
+        <div id="mission-team-size" class="stat-value">SQUAD (4-8)</div>
+      </div>
+    </div>
+    <button id="mission-intel-button" class="intel-button">VIEW INTEL</button>
+  </div>
+  
+  <!-- Intel Panel -->
+  <div id="intel-panel">
+    <div id="intel-header">
+      <div id="intel-title">MISSION INTEL</div>
+      <button id="close-intel">X</button>
+    </div>
+    <div class="intel-section">
+      <div id="intel-content" class="intel-content">
+        <!-- Intel content will be loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <div id="notification">SYSTEM NOTIFICATION</div>
+
+  <div id="status-bar">
+    <div id="status-text">STATUS: OPERATIONAL</div>
+    <div id="date-time">00:00:00 UTC</div>
+  </div>
+
+  <div id="volume-control">
+    <img id="volume-icon" src="textures/volume.png" alt="Volume">
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+  </div>
+
+  <!-- Audio -->
+  <audio id="background-music" loop>
+    <source src="music/background-music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="activation-sound">
+    <source src="sounds/activation-sound.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="tab-sound">
+    <source src="sounds/tab-sound.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="mission-sound">
+    <source src="sounds/mission-sound.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="intel-sound">
+    <source src="sounds/intel-sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="js/main.js"></script>
