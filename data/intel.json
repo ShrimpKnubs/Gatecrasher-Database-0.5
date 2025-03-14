@@ -1,0 +1,9 @@
+{
+    "mission1": {
+        "title": "FAILED DIPLOMACY INTEL",
+        "content": "A diplomatic meeting has gone wrong, and the embassy staff need immediate extraction. Local forces are hostile and the situation is deteriorating rapidly. Your team needs to get in, secure the staff, and get out before the situation worsens."
+        ,"images": [
+            "goblin.jpg"
+        ]
+    }
+}

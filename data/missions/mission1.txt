@@ -1,0 +1,28 @@
+﻿# ARMA 3 MISSION TEMPLATE
+# Edit the fields below and save the file
+# Use "mission1.txt", "mission2.txt", etc. for filenames
+
+# Basic Mission Information
+ID:mission1
+Name:FAILED DIPLOMACY
+Location:Vietnam
+Difficulty:MEDIUM
+Payment:$27,525.75
+Duration:2.5 HRS
+TeamSize:SQUAD (3-6)
+
+# Coordinates (decimal format)
+Latitude:10.536421
+Longitude:106.285339
+
+# Mission Image (leave blank if none)
+# Example: mission1.jpg (file must be in data/images folder)
+MissionImage:
+
+# Intel Information
+IntelTitle:FAILED DIPLOMACY INTEL
+IntelContent:A diplomatic meeting has gone wrong, and the embassy staff need immediate extraction. Local forces are hostile and the situation is deteriorating rapidly. Your team needs to get in, secure the staff, and get out before the situation worsens.
+
+# Intel Images (comma-separated list, leave blank if none)
+# Example: intel1.jpg,intel2.jpg (files must be in data/images folder)
+IntelImages:goblin.jpg

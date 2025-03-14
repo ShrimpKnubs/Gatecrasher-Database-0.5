@@ -1,0 +1,15 @@
+[
+    {
+        "id": "mission1",
+        "name": "FAILED DIPLOMACY",
+        "location": "Vietnam",
+        "difficulty": "MEDIUM",
+        "payment": "$27,525.75",
+        "duration": "2.5 HRS",
+        "teamSize": "SQUAD (3-6)",
+        "coordinates": {
+            "lat": 10.536421,
+            "lon": 106.285339
+        }
+    }
+]
